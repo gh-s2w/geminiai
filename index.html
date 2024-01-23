@@ -23,9 +23,7 @@
             min-height: 80vh;
             margin: 0;
             font-family: 'line_seed_sans_th';
-
         }
-
         .container {
             margin: 20px auto;
             height: 90vh;
@@ -34,7 +32,6 @@
     </style>
 </head>
 
-
 <body>
     <div class="containermx-auto max-w-xl p-6">
 
@@ -42,19 +39,14 @@
             <div class="w-full md:w-1/2 md:mx-auto flex flex-col md:flex-row items-center justify-center text-center">
                 <img class="inline-flex object-cover border-4 border-indigo-600 rounded-full shadow-[5px_5px_0_0_rgba(0,0,0,1)] shadow-indigo-600/100 dark:shadow-indigo-700/100 bg-indigo-50 h-24 w-24 !h-32 !w-32 mb-4 md:mb-0 ml-0 md:mr-5"
                     src="https://media.giphy.com/media/D101ONNCxxmKrK84Hr/giphy.gif" alt="" id="profileurl">
-
             </div>
             <h1 class="text-2xl font-semibold mb-4">สวัสดีคุณ: <span id="displaynamefield"></span></h1>
-
-
             <div class="mb-4">
                 <label for="coupon" class="block text-gray-700 font-semibold mb-2">Prompt:</label>
                 <input type="text" id="msgInput" name="text"
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:border-blue-500"
                     placeholder="พิมพ์ถาม AI จากช่องนี้">
             </div>
-
-
             <div class="text-center">
                 <button
                     class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500"
@@ -72,48 +64,31 @@
                         </svg> กำลังค้นหา...</span>
                 </button>
             </div>
-
-
             <div class="mt-4 text-green-500">
               Gemini era Google
             </div>
         </div>
     </div>
     <div class="max-w-6xl mx-auto">
-
         <div class="flex justify-center min-h-screen">
-
             <div class="max-w-md w-full p-4 py-6">
-
                 <ul id="output" class="user-info">
                     <li>
                         <h3>รอคำถามจากคุณอยู่...</h3>
-
                     </li>
                 </ul>
-
-
-
-
             </div>
         </div>
     </div>
-
-
-
-
+    
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
-
     <script>
-
         function generateAndDisplayContent() {
             var msgText = document.getElementById('msgInput').value;
-
             if (!msgText) {
                 return;
             }
-
 
             document.getElementById('btnText').style.display = 'none';
             document.getElementById('loading').style.display = 'inline-block';
@@ -149,23 +124,17 @@
         function displayContent(msgTexts, content) {
             var outputDiv = document.getElementById('output');
             outputDiv.innerHTML = `<p style="white-space: pre-line;"><b>Gemini ตอบ: </b><br>${content}</p><br>
-          <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500" id="flex">แชร์เนื้อหานี้ให้เพื่อน</button>`;
+            <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500" id="flex">แชร์เนื้อหานี้ให้เพื่อน</button>`;
             document.querySelector('#flex').addEventListener('click', () => {
-
                 searchflex(`${msgTexts}`, `${content}`)
             })
 
             document.getElementById('loading').style.display = 'none';
             document.getElementById('btnText').style.display = 'inline-block';
-
-
             document.getElementById('msgInput').value = '';
         }
 
-
         function searchflex(msgTexts, content) {
-
-
             liff.shareTargetPicker([{
                 "type": "flex",
                 "altText": "แชร์โดย " + liff.getDecodedIDToken().name,
@@ -306,8 +275,8 @@
                     console.log("something wrong happen");
                 });
         }
-
     </script>
+    
     <script>
         var userId = "";
 
@@ -340,12 +309,9 @@
                             window.alert('Error getting profile: ' + error);
                         })
                     }
-
                 })
         }
     </script>
-
-
 
 </body>
 
